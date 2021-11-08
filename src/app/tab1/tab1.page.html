@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Login Cie
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Login Cie</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!--app-explore-container name="Tab 1 page"></app-explore-container-->
+  
+  <ion-label class="title">{{responseTitle}}</ion-label>
+  <ion-label class="response">{{response | json}}</ion-label>
+  
+</ion-content>
+<ion-footer>
+  <ion-button (click)="login()" expand="full">Login</ion-button>
+</ion-footer>

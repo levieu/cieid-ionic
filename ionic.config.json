@@ -1,0 +1,7 @@
+{
+  "name": "cieTest",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
