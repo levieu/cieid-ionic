@@ -24,9 +24,9 @@ export class Tab1Page {
 
   initializeApp() {
     this.plt.ready().then(() => {
-      //if(this.plt.is("ios")){
+      if(this.plt.is("ios")){
         this.setupDeeplinks();
-      //}
+      }
       
     });
   }
