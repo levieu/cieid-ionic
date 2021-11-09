@@ -132,7 +132,12 @@ export class Tab1Page {
         console.table(event);
         console.log("" + event.code + " - " + event.message);
         this.updateResponse(event.code + " - " + event.message, event);
-        this.browserReference.close();
+        if(event.code === constants.NO_IOS_CIEID_APP){
+          this.browserReference._loadAfterBeforeload(environment.urlAppStoreCieid);
+        }
+        else{
+          this.browserReference.close();
+        }
         
       }
     });
@@ -141,8 +146,8 @@ export class Tab1Page {
 
   launchCieIdOnIOS(url){
     console.log("launchCieIdOnIOS url base --> ", url);
-    console.log("launchCieIdOnIOS url --> ", constants.PROTOCOL_CIEID+constants.SLASH+constants.TWO_POINTS+constants.DOUBLE_SLASH)+url
-      +constants.SLASH+constants.AMP+constants.SOURCE_APP_KEY+constants.EQUAL+environment.sourceApp;
+    console.log("launchCieIdOnIOS url --> ", constants.PROTOCOL_CIEID+constants.TWO_POINTS+constants.DOUBLE_SLASH+url
+      +constants.SLASH+constants.AMP+constants.SOURCE_APP_KEY+constants.EQUAL+environment.sourceApp);
     this.browserReference._loadAfterBeforeload(
       constants.PROTOCOL_CIEID+constants.TWO_POINTS+constants.DOUBLE_SLASH+url
       +constants.SLASH+constants.AMP+constants.SOURCE_APP_KEY+constants.EQUAL+environment.sourceApp

@@ -28,7 +28,8 @@ export const constants = {
     IDP_URL: "ios.idserver.servizicie.interno.gov.it",
     //ERROR
     CIEID_ERROR: "cieiderror",
-    CIEID_ERROR_MESSAGE: "cieid_error_message"
+    CIEID_ERROR_MESSAGE: "cieid_error_message",
+    NO_IOS_CIEID_APP: -100,
     /*****************/
     /**** END iOS ****/
     /*****************/
