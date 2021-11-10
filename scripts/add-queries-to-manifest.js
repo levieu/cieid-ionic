@@ -19,12 +19,25 @@ module.exports = function(context) {
         }
 
         // Add permission to open app
-        data = data.replace("</manifest>", 
+        if (!data.includes("<queries>")){
+            data = data.replace("</manifest>",
             '\t<queries>'+
             '\n\t\t<package android:name="it.ipzs.cieid.collaudo" \/>'+
             '\n\t\t<package android:name="it.ipzs.cieid" \/>'+
+            '\n\t\t<package android:name="com.google.android.apps.maps" \/>'+
             '\n\t</queries>'+
             '\n</manifest>');
+        }else{
+            if (!data.includes("<package android:name=\"it.ipzs.cieid.collaudo\" \/>")){
+                data = data.replace("</queries>", '\t<package android:name="it.ipzs.cieid.collaudo" \/>\n\t</queries>');
+            }
+            if (!data.includes("<package android:name=\"it.ipzs.cieid\" \/>")){
+                data = data.replace("</queries>", '\t<package android:name="it.ipzs.cieid" \/>\n\t</queries>');
+            }
+            if (!data.includes("<package android:name=\"com.google.android.apps.maps\" \/>")){
+                data = data.replace("</queries>", '\t<package android:name="com.google.android.apps.maps" \/>\n\t</queries>');
+            }    
+        }
         
         // Replace manifest file with updated version
         if(data){

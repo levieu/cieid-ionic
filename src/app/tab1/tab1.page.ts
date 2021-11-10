@@ -217,6 +217,7 @@ export class Tab1Page {
         url: encodeURI(environment.urlPlayStoreCieid+environment.ciePackageName)
       }
       this.webIntent.startActivity(optionsIntentNoCieIdApp);
+      this.browserReference.close();
     });
 
   }
